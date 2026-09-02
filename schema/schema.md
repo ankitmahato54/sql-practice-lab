@@ -27,34 +27,34 @@
 
 ## 4. devices
 
-| Column        | Data Type | PK  | FK  | NULL     | UNIQUE | DEFAULT        | Notes                                      |
-| ------------- | --------- | --- | --- | -------- | ------ | -------------- | ------------------------------------------ |
-| device_id     | VARCHAR   | YES | NO  | NOT NULL | YES    | auto-generated | Device identifier                          |
-| ip_address    | INET      | NO  | NO  | NULL     | NO     | -              | IP address, may be unavailable initially   |
-| mac_address   | VARCHAR   | NO  | NO  | NOT NULL | YES    | -              | MAC address must be unique                 |
-| owner_user_id | INTEGER   | NO  | NO  | NOT NULL | NO     | -              | FK → users.user_id                         |
-| device_type   | VARCHAR   | NO  | NO  | NOT NULL | NO     | -              | Device type, e.g. Laptop, Desktop, Printer |
+| Column        | Data Type | PK  | FK  | NULL     | UNIQUE | DEFAULT | Notes                                      |
+| ------------- | --------- | --- | --- | -------- | ------ | ------- | ------------------------------------------ |
+| device_id     | VARCHAR   | YES | NO  | NOT NULL | YES    | -       | Device identifier                          |
+| ip_address    | INET      | NO  | NO  | NULL     | NO     | -       | IP address, may be unavailable initially   |
+| mac_address   | VARCHAR   | NO  | NO  | NOT NULL | YES    | -       | MAC address must be unique                 |
+| owner_user_id | INTEGER   | NO  | YES | NOT NULL | NO     | -       | FK → users.user_id                         |
+| device_type   | VARCHAR   | NO  | NO  | NOT NULL | NO     | -       | Device type, e.g. Laptop, Desktop, Printer |
 
 ## 5. applications
 
-| Column              | Data Type | PK  | FK  | NULL     | UNIQUE | DEFAULT        | Notes                  |
-| ------------------- | --------- | --- | --- | -------- | ------ | -------------- | ---------------------- |
-| application_id      | VARCHAR   | YES | NO  | NOT NULL | YES    | auto-generated | Application identifier |
-| application_name    | VARCHAR   | NO  | NO  | NOT NULL | YES    | -              | Application name       |
-| application_version | VARCHAR   | NO  | NO  | NOT NULL | NO     | -              | Application version    |
+| Column              | Data Type | PK  | FK  | NULL     | UNIQUE | DEFAULT | Notes                  |
+| ------------------- | --------- | --- | --- | -------- | ------ | ------- | ---------------------- |
+| application_id      | VARCHAR   | YES | NO  | NOT NULL | YES    | -       | Application identifier |
+| application_name    | VARCHAR   | NO  | NO  | NOT NULL | YES    | -       | Application name       |
+| application_version | VARCHAR   | NO  | NO  | NOT NULL | NO     | -       | Application version    |
 
 ## 6. tickets
 
-| Column             | Data Type | PK  | FK  | NULL     | UNIQUE | DEFAULT        | Notes                                                         |
-| ------------------ | --------- | --- | --- | -------- | ------ | -------------- | ------------------------------------------------------------- |
-| ticket_id          | VARCHAR   | YES | NO  | NOT NULL | YES    | auto-generated | Ticket identifier                                             |
-| user_id            | INTEGER   | NO  | YES | NOT NULL | NO     | -              | FK → users.user_id; ticket creator                            |
-| technician_user_id | INTEGER   | NO  | YES | NULL     | NO     | -              | FK → technicians.user_id; assigned technician                 |
-| device_id          | VARCHAR   | NO  | YES | NOT NULL | NO     | -              | FK → devices.device_id                                        |
-| application_id     | VARCHAR   | NO  | YES | NOT NULL | NO     | -              | FK → applications.application_id                              |
-| issue              | TEXT      | NO  | NO  | NOT NULL | NO     | -              | Ticket issue/description                                      |
-| status             | VARCHAR   | NO  | NO  | NOT NULL | NO     | Created        | fixed allowed values - Created, In Progress, Resolved, Closed |
-| priority           | VARCHAR   | NO  | NO  | NOT NULL | NO     | Low            | fixed allowed values - Low, Medium, High, Critical            |
+| Column             | Data Type | PK  | FK  | NULL     | UNIQUE | DEFAULT | Notes                                                         |
+| ------------------ | --------- | --- | --- | -------- | ------ | ------- | ------------------------------------------------------------- |
+| ticket_id          | VARCHAR   | YES | NO  | NOT NULL | YES    | -       | Ticket identifier                                             |
+| user_id            | INTEGER   | NO  | YES | NOT NULL | NO     | -       | FK → users.user_id; ticket creator                            |
+| technician_user_id | INTEGER   | NO  | YES | NULL     | NO     | -       | FK → technicians.user_id; assigned technician                 |
+| device_id          | VARCHAR   | NO  | YES | NOT NULL | NO     | -       | FK → devices.device_id                                        |
+| application_id     | VARCHAR   | NO  | YES | NOT NULL | NO     | -       | FK → applications.application_id                              |
+| issue              | TEXT      | NO  | NO  | NOT NULL | NO     | -       | Ticket issue/description                                      |
+| status             | VARCHAR   | NO  | NO  | NOT NULL | NO     | Created | fixed allowed values - Created, In Progress, Resolved, Closed |
+| priority           | VARCHAR   | NO  | NO  | NOT NULL | NO     | Low     | fixed allowed values - Low, Medium, High, Critical            |
 
 ## 7. ticket_comments
 
@@ -70,7 +70,7 @@
 
 | Column             | Data Type | PK  | FK  | NULL     | UNIQUE | DEFAULT           | Notes                                                 |
 | ------------------ | --------- | --- | --- | -------- | ------ | ----------------- | ----------------------------------------------------- |
-| status_history_id  | VARCHAR   | YES | NO  | NOT NULL | YES    | auto-generated    | Status history identifier                             |
+| status_history_id  | VARCHAR   | YES | NO  | NOT NULL | YES    | -                 | Status history identifier                             |
 | ticket_id          | VARCHAR   | NO  | YES | NOT NULL | NO     | -                 | FK → tickets.ticket_id                                |
 | status             | VARCHAR   | NO  | NO  | NOT NULL | NO     | -                 | fixed values - Created, In Progress, Resolved, Closed |
 | changed_by_user_id | INTEGER   | NO  | YES | NOT NULL | NO     | -                 | FK → users.user_id                                    |
