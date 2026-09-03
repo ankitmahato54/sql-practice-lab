@@ -55,3 +55,41 @@ create table ticket_status_history (
     status varchar not null, 
     changed_by_user_id integer references users(user_id) not null, status_changed_at timestamp not null default current_timestamp 
 );
+
+
+
+insert into departments (department_name)
+values 
+    ('IT Support'), 
+    ('Network Operations'), 
+    ('Finance'), 
+    ('HR'),
+    ('Sales');
+
+insert into users (
+    user_name,
+    department_id,
+    user_date_of_joining,
+    user_designation
+)
+values
+    ('Ankit Mahato', 1, '2021-06-14', 'IT Support Analyst'),
+    ('Adarsh Rana', 2, '2020-03-09', 'Network engineer'),
+    ('Subham Moharana', 3, '2022-01-17', 'Finance Analyst'),
+    ('Rounak Karmakar', 1, '2023-08-21', 'IT Support Analyst'),
+    ('Sumit Rai', 5, '2020-07-13', 'Sales Executive'),
+    ('Suman Giri', 4, '2020-07-13', 'HR Executive'),
+    ('Vikash Singh', 1, '2019-04-22', 'Senior IT Support Analyst'),
+    ('Sonu Yadav', 2, '2022-09-05', 'Network Engineer'),
+    ('Debanjan Gupta', 3, '2023-02-13', 'Finance Executive'),
+    ('Nitish Kumar', 5, '2024-01-08', 'Sales Executive');
+
+insert into technicians (
+    user_id,
+    technician_specialization,
+    support_level
+)values
+    (1, 'Desktop Support', 'L1'),
+    (2, 'Network Support', 'L2'),
+    (7, 'System Administration', 'L3'),
+    (8 , 'Network Support', 'L1');
