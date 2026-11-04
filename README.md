@@ -1,4 +1,4 @@
-# IT Support Ticket Management System
+# SQL Practice - IT Support Ticket Management System
 
 ## What is the SQL Lab Project?
 
