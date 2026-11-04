@@ -1,8 +1,8 @@
-# SQL Lab Project - IT Support Ticket Management
+# IT Support Ticket Management System
 
 ## What is the SQL Lab Project?
 
-This project is about the actual implementation of the knowledge I gained while learning SQL and databases. The name of the project is **"SQL Lab Project - IT Support Ticket Management."** The reason behind choosing this topic, IT Support, is that I have already had exposure to working in an IT support role while I was at Wipro, so I decided to implement that ticket management system using SQL to showcase my understanding of databases, their relationships, and query processing.
+This project is about the actual implementation of the knowledge I gained while learning SQL and databases. The name of the project is **"IT Support Ticket Management System."** The reason behind choosing this topic, IT Support, is that I have already had exposure to working in an IT support role while I was at Wipro, so I decided to implement that ticket management system using SQL to showcase my understanding of databases, their relationships, and query processing.
 
 Here, I have mainly taken 8 tables, but in a real-life IT ticket management system, there would be more than that. The idea here is just to replicate my knowledge and understanding of tables, their relationships, how to query using multiple tables, performing normalization, joins, aggregate functions, etc. I have used PostgreSQL in the project as it is open source and provides many useful features.
 
